@@ -11,9 +11,11 @@ const sequelize = require('./config/connection');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+const helpers = require('./utils/formats')
+
 // Set up sessions
 const sess = {
-  secret: 'session secret',
+  secret: process.env.SECRET,
   cookie: {
     maxAge: 24 * 60 * 60 * 1000
   },
@@ -26,8 +28,7 @@ const sess = {
 
 app.use(session(sess));
 
-// const hbs = exphbs.create({ helpers });
-const hbs = exphbs.create();
+const hbs = exphbs.create({ helpers });
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
