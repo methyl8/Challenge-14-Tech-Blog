@@ -18,6 +18,7 @@ router.post('/', async (req, res) => {
         }
         else {
             console.log('name or psd incorrect');
+            res.status(404).redirect('/signup')
         }
         console.log(user, req.session.loggedIn);
     }
