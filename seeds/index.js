@@ -1,6 +1,5 @@
 //seeds
 const sequelize = require('../config/connection');
-const seedUsers = require('./userData');
 const seedPosts = require('./postData');
 const seedComments = require('./commentData');
 const { User } = require('../models');
@@ -15,6 +14,8 @@ const seedAll = async () => {
   await User.create(userdata)
   
   await seedPosts();
+
+  await seedComments()
 
   process.exit(0);
 };

@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
         const user = await User.create(req.body);
         req.session.save(() => {
                 req.session.loggedIn = true;
-
+                req.session.loginId = user.id;
                 res.status(200).redirect('/');
             });
         console.log(user, req.session.loggedIn);

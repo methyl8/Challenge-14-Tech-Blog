@@ -20,7 +20,10 @@ Post.init(
     } 
   },
   {
-    sequelize
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'Post'
   }
 );
 

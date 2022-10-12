@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
         if (user && user.checkPassword(req.body.password)) {
             req.session.save(() => {
                 req.session.loggedIn = true;
-
+                req.session.loginId = user.id;
                 res.status(200).redirect('/');
             });
         }
