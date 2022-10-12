@@ -8,25 +8,23 @@ router.get('/:id', async (req, res) => {
         }
         else {
             const post = await Post.findByPk(req.params.id, {include: [{model: User}, {model: Comment}]});
-            console.log(post.get({ plain: true }));
 
             res.render("single-post", { post: post.get({ plain: true }) })
-            // res.render("single-post")
         }
     }
     catch (e) {
         res.status(500).json(e)
     }
 });
+
  router.post('/', async (req, res) => {
     try {
-        const newComment = Comment.create({
+        const newComment = await Comment.create({
             postId: req.body.postId,
             body: req.body.body,
             userId: req.session.loginId
         });
-        console.log(newComment);
-        // res.redirect(`/post/${req.body.postId}`)
+        res.json(newComment.get({plain: true}));
     }
     catch(e) {
         res.status(500).json("An error occurred")

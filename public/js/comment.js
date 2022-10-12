@@ -11,5 +11,5 @@ commentForm.addEventListener("submit", function (e) {
         method: "POST",
         body: JSON.stringify(body),
         headers: { 'Content-Type': 'application/json' }
-    }).then(window.location.replace('/'))
+    }).then(window.location.reload())
 });
