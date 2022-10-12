@@ -7,7 +7,6 @@ router.get('/', async (req, res) => {
             include: [{model: User}]
         });
         const posts = allPostsDB.map((post) => post.get({ plain:true }))
-        console.log(posts);
         res.render("all-posts", {posts})
     }
     catch (e) {

@@ -14,12 +14,12 @@ const postdata = [
   {
     title: 'title3',
     body: 'body3',
-    userId: 2,
+    userId: 1,
   },
   {
     title: 'title4',
     body: 'body4',
-    userId: 3,
+    userId: 1,
   },
   {
     title: 'title5',
